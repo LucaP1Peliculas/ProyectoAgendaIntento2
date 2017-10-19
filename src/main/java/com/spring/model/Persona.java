@@ -30,8 +30,7 @@ public class Persona implements Serializable {
     private String dni;
     @Column(name = "fechaNacimiento", length = 25)
     private String fechaNacimiento;
-//    @Column(name = "idempleado", length = 25)
-//    private int idempleado;
+
     
     
     
