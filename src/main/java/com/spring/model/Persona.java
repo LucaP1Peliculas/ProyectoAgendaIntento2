@@ -1,7 +1,5 @@
 package com.spring.model;
 
-
-
 import java.io.Serializable;
 
 import javax.persistence.Column;
@@ -9,7 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
 
 
 @Entity
@@ -30,9 +31,12 @@ public class Persona implements Serializable {
     private String dni;
     @Column(name = "fechaNacimiento", length = 25)
     private String fechaNacimiento;
-// Hola pablete sosio
+  
     
-    
+      // @JoinColumn(name= "idEmpleado", referencedColumnName ="idempleados")
+     // @OneToOne
+    // private Empleado empleadoId;
+
     
     public int getIdpersonas() {
 		return idpersonas;
@@ -98,22 +102,12 @@ public class Persona implements Serializable {
 		return serialVersionUID;
 	}
 
-	
-
-//	public String getIdempleado() {
-//		return idempleado;
-//	}
-//
-//
-//	public void setIdempleado(String idempleado) {
-//		this.idempleado = idempleado;
-//	}
-
 
 	public Persona() {
     }
 
-
+   // -----------------constructor sin primary key y foreingkey
+	
     public Persona( String nombre, String apellido1, String apellido2, String dni,
 			String fechaNacimiento) {
 		super();
@@ -124,6 +118,24 @@ public class Persona implements Serializable {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
+    
+    //---------------- constructor con todos los atributos
+
+//	public Persona(int idpersonas, String nombre, String apellido1, String apellido2, String dni,
+//			String fechaNacimiento, int idempleado) {
+//		super();
+//		this.idpersonas = idpersonas;
+//		this.nombre = nombre;
+//		this.apellido1 = apellido1;
+//		this.apellido2 = apellido2;
+//		this.dni = dni;
+//		this.fechaNacimiento = fechaNacimiento;
+//		this.idempleado = idempleado;
+//	}
+
+    
+    
+  //---------------- constructor sin idpersona
 //    public Persona( String nombre, String apellido1, String apellido2, String dni,
 //			String fechaNacimiento, int idempleado) {
 //		super();
@@ -135,4 +147,6 @@ public class Persona implements Serializable {
 //		this.idempleado=idempleado;
 //	}
 
+    
+    
 }
