@@ -4,8 +4,8 @@
 
 <head>
     <title>Inicio</title>
-    <script src="../assets/js/function.js" type="text/javascript"></script>
-    <link href="../assets/css/style.css" rel="stylesheet">
+    <script type="text/javascript" src="../assets/js/function.js"></script>
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 
 <body>
