@@ -11,5 +11,8 @@ public interface IPersonaDAO {
 	public void saveOrUpdate(Persona persona);
 	public void delete(int id);
 	
+	
+	
+	
 
 }
