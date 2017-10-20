@@ -23,7 +23,7 @@ import javax.persistence.Table;
  * La clase Telefono tiene incluidos los atributos de idtelefonos, telefono y trae el idpersonas de la clase Persona.
  * Tenemos constructores vacíos, constructores con los atributos y toString.
  * También hemos incluido el equals() y el hash(), me ha salido un warning de que puede que el equals y el hash den problemas, deberíamos tenerlo en cuenta si salen problemas.
- * 
+ * Try
  */
 
 public class Telefono implements Serializable {
