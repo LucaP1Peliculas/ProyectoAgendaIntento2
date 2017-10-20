@@ -37,19 +37,19 @@ public class PersonaDAOImp implements IPersonaDAO{
 
 	@Override
 	public Persona get(int id) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
 	@Override
 	public void saveOrUpdate(Persona persona) {
-		// TODO Auto-generated method stub
+	
 		
 	}
 
 	@Override
 	public void delete(int id) {
-		// TODO Auto-generated method stub
+	
 		
 	}
 

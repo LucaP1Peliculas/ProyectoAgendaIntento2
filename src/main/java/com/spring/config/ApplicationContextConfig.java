@@ -44,9 +44,9 @@ public class ApplicationContextConfig {
     	dataSource.setDriverClassName("com.mysql.jdbc.Driver");
   
     	//--- CONEXION DE MARIO PARA LA BASE DE DATOS ---//
-    	dataSource.setUrl("jdbc:mysql://192.168.200.2:3306/agenda");
-    	dataSource.setUsername("mariolus");
-    	dataSource.setPassword("yayolus");
+//    	dataSource.setUrl("jdbc:mysql://192.168.200.2:3306/agenda");
+//    	dataSource.setUsername("mariolus");
+//    	dataSource.setPassword("yayolus");
     	
     	//--- CONEXION DE PABLO PARA LA BASE DE DATOS ---//
     	//dataSource.setUrl("jdbc:mysql://192.168.200.2:3306/agenda");
@@ -54,9 +54,9 @@ public class ApplicationContextConfig {
     	//dataSource.setPassword("pablo");
     	
     	//--- CONEXION DE ZAINEB PARA LA BASE DE DATOS ---//
-//    	dataSource.setUrl("jdbc:mysql://192.168.200.2:3306/agenda");
-//    	dataSource.setUsername("zaineb");
-//    	dataSource.setPassword("zaineb");
+    	dataSource.setUrl("jdbc:mysql://192.168.200.2:3306/agenda");
+    	dataSource.setUsername("zaineb");
+    	dataSource.setPassword("zaineb");
     	
     	//--- CONEXION DE GABRIEL PARA LA BASE DE DATOS ---//
     	//dataSource.setUrl("jdbc:mysql://localhost:3306/agenda");

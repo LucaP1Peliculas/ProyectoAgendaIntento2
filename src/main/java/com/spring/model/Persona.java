@@ -32,10 +32,7 @@ public class Persona implements Serializable {
     @Column(name = "fechaNacimiento", length = 25)
     private String fechaNacimiento;
     
-//<<<<<<< HEAD
-//=======
-  
-// >>>>>>> branch 'master' of https://github.com/LucaP1Peliculas/Proyecto2Luca
+
     
       // @JoinColumn(name= "idEmpleado", referencedColumnName ="idempleados")
      // @OneToOne
