@@ -33,9 +33,9 @@ public class ApplicationContextConfig {
     }
     
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/css/**").addResourceLocations("/assets/css/");
-		registry.addResourceHandler("/fonts/**").addResourceLocations("/assets/fonts/");
-		registry.addResourceHandler("/js/**").addResourceLocations("/assets/js/");
+		registry.addResourceHandler("/static/**").addResourceLocations("/static/assets");
+//		registry.addResourceHandler("/fonts/**").addResourceLocations("/assets/fonts/");
+//		registry.addResourceHandler("/js/**").addResourceLocations("/assets/js/");
 	}
         
     @Bean(name = "dataSource")
@@ -44,19 +44,19 @@ public class ApplicationContextConfig {
     	dataSource.setDriverClassName("com.mysql.jdbc.Driver");
   
     	//--- CONEXION DE MARIO PARA LA BASE DE DATOS ---//
-//    	dataSource.setUrl("jdbc:mysql://192.168.200.2:3306/agenda");
-//    	dataSource.setUsername("mariolus");
-//    	dataSource.setPassword("yayolus");
+    	dataSource.setUrl("jdbc:mysql://192.168.200.2:3306/agenda");
+    	dataSource.setUsername("mariolus");
+    	dataSource.setPassword("yayolus");
     	
     	//--- CONEXION DE PABLO PARA LA BASE DE DATOS ---//
     	//dataSource.setUrl("jdbc:mysql://192.168.200.2:3306/agenda");
     	//dataSource.setUsername("pablo");
     	//dataSource.setPassword("pablo");
     	
-    	//--- CONEXION DE ZAINEB PARA LA BASE DE DATOS ---//
-    	dataSource.setUrl("jdbc:mysql://192.168.200.2:3306/agenda");
-    	dataSource.setUsername("zaineb");
-    	dataSource.setPassword("zaineb");
+//    	//--- CONEXION DE ZAINEB PARA LA BASE DE DATOS ---//
+//    	dataSource.setUrl("jdbc:mysql://192.168.200.2:3306/agenda");
+//    	dataSource.setUsername("zaineb");
+//    	dataSource.setPassword("zaineb");
     	
     	//--- CONEXION DE GABRIEL PARA LA BASE DE DATOS ---//
     	//dataSource.setUrl("jdbc:mysql://localhost:3306/agenda");
