@@ -1,10 +1,12 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="es">
 
 <head>
     <title>Inicio</title>
-    <script type="text/javascript" src="../assets/js/function.js"></script>
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="assets/js/function.js" type="text/javascript"></script>
+    <link href="assets/css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -12,19 +14,19 @@
         <nav>
             <ul>
                 <li id="settings">
-                    <a href="#"><img src="../images/logo1.png" /></a>
+                    <a href="#"><img src="images/logo1.png" /></a>
                 </li>
                 <li>
-                    <a href="#">Application</a>
+                    <a href="#">Añadir</a>
                 </li>
                 <li>
                     <a href="#">Ejemplo</a>
                 </li>
                 <li id="options">
-                    <a href="#">Categor�a</a>
+                    <a href="#">Categoría</a>
                     <ul class="subnav">
                         <li><a href="#">Fijo</a></li>
-                        <li><a href="#">M�vil</a></li>
+                        <li><a href="#">Móvil</a></li>
                     </ul>
                 </li>
                 <li id="options">
@@ -33,12 +35,11 @@
                         <li><a href="#">1</a></li>
                         <li><a href="#">2</a></li>
                         <li><a href="#">3</a></li>
-                        <li class="desplegable"><a href="#">Options</a></li>
                     </ul>
                 </li>
                 <li id="search">
                     <form action="" method="get">
-                        <input type="text" name="search_text" id="search_text" placeholder="Search" />
+                        <input type="text" name="search_text" id="search_text" placeholder="Búsqueda" />
                         <input type="button" name="search_button" id="search_button" />
                     </form>
                 </li>
@@ -49,17 +50,23 @@
     <div class="contenedor">
         <article class="scroll" id="scroll-style">
            
+           <!-- Cada section pertenece a un contacto. Se generará uno por cada contacto cargado. 
+                Tras pulsar en el section correspondiente o (h3) se realizará la llamada para 
+                completar el div de la derecha con la información correspondiente rellena. -->
+                
             <section>
-
+				
             </section>
             <section>
-
+			    <a><img src="images/person.png"/></a>
+				<h3>Gabriel Martínez Castañares</h3>
             </section>
             <section>
-
+                <a><img src="images/person.png"/></a>
+				<h3>Mario Vela</h3>    
             </section>
             <section>
-
+            
             </section>
             <section>
 
@@ -73,7 +80,21 @@
             
         </article>
         <aside>
-        
+            <a><img src="images/person.png"/></a>
+            <div id="information">
+                <form id="formContacto" action="" method="get">
+                    <input type="text" name="nombre" id="titElement" placeholder="Nombre, Apellido1 Apellido2"/>
+                    <input type="date" name="fechaNacimiento" id="elements"/>
+                    <input type="text" name="dni" id="elements" placeholder="DNI"/>
+                    <input type="text" name="fechaNacimiento" id="elements" placeholder="Provincia"/>
+                    <input type="text" name="localidad" id="elements" placeholder="Localidad"/>
+                    <input type="text" name="direccion" id="elements" placeholder="Dirección"/>
+                    <input type="text" name="codpostal" id="elements" placeholder="Código postal"/>
+                    <input type="text" name="telefono" id="elements" placeholder="Teléfono"/>
+                    <input type="text" name="movil" id="elements" placeholder="Móvil"/>
+                    <input type="button" name="send_button" id="send_button" value="Guardar"/>
+                </form>
+            </div>
         </aside>
     </div>
 
