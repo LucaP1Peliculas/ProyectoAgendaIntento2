@@ -20,6 +20,7 @@ public class HomeController {
 	
 	@RequestMapping("/")
 	public ModelAndView handleRequest() throws Exception {
+		System.out.println("Aceptada la respuesta al mapeo /");
 		List<Persona> listPersonas = personaService.list();
 		ModelAndView model = new ModelAndView("index");
 		model.addObject("personList", listPersonas);

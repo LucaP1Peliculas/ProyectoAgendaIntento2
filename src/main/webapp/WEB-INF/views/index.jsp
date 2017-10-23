@@ -10,8 +10,7 @@
 <head>
     <title>Inicio</title>
    	
-   	<spring:url value="/resources/css/style.css" var="estilo" />
-   	<link href="${estilo}" rel="stylesheet" />
+   <link href="<c:url value='/resources/css/style.css' />" rel="stylesheet"></link>
   	
    	   
 

@@ -13,28 +13,34 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import com.spring.model.*;
 
 @Configuration
+@EnableWebMvc
 @ComponentScan("com.spring")
 @EnableTransactionManagement
-public class ApplicationContextConfig {
+public class ApplicationContextConfig extends WebMvcConfigurerAdapter{
     
 	
 	@Bean(name = "viewResolver")
     public InternalResourceViewResolver getViewResolver() {
+		System.out.println("-- viewResolver");
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
         viewResolver.setPrefix("/WEB-INF/views/");
         viewResolver.setSuffix(".jsp");
         return viewResolver;
     }
     
+	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		System.out.println("hola tio");
-		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/assets");
+		System.out.println("-- entrando en addResourceHandlers");
+		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/assets/");
+		registry.addResourceHandler("/images/**").addResourceLocations("resources/assets/");
 //		registry.addResourceHandler("/fonts/**").addResourceLocations("/assets/fonts/");
 //		registry.addResourceHandler("/js/**").addResourceLocations("/assets/js/");
 	}
