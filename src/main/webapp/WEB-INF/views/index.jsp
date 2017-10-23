@@ -2,15 +2,17 @@
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="java.util.*"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="es">
 
 <head>
     <title>Inicio</title>
    	
-   	
-   	<link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet">
+   	<spring:url value="/resources/css/style.css" var="estilo" />
+   	<link href="${estilo}" rel="stylesheet" />
+  	
    	   
 
 </head>
@@ -56,34 +58,21 @@
     <div class="contenedor">
         <article class="scroll" id="scroll-style">
            
+           
+           
            <!-- Cada section pertenece a un contacto. Se generará uno por cada contacto cargado. 
                 Tras pulsar en el section correspondiente o (h3) se realizará la llamada para 
                 completar el div de la derecha con la información correspondiente rellena. -->
-                
-            <section>
-				
-            </section>
-             <section>
-                <a><img src="images/person.png"/></a>
-				<h3>Mario Vela</h3>    
-            </section>
-            <section>
-			    <a><img src="images/person.png"/></a>
-				<h3>Gabriel Martínez Castañares</h3>
-            </section>
-           
-            <section>
+             
+             <c:forEach var="persona" items="${personList}" varStatus="status">
+             	<section>
+             		<a><img src="images/person.png"/></a>
+             		<h3>${persona.nombre}</h3>
+             	</section>
+			</c:forEach>
+             
             
-            </section>
-            <section>
-
-            </section>
-            <section>
-
-            </section>
-            <section>
-
-            </section>
+            
             
         </article>
         <aside>

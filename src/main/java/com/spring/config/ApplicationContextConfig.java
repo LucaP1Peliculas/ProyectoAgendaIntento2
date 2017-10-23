@@ -33,7 +33,8 @@ public class ApplicationContextConfig {
     }
     
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/static/**").addResourceLocations("/static/assets");
+		System.out.println("hola tio");
+		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/assets");
 //		registry.addResourceHandler("/fonts/**").addResourceLocations("/assets/fonts/");
 //		registry.addResourceHandler("/js/**").addResourceLocations("/assets/js/");
 	}
