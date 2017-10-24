@@ -1,5 +1,7 @@
 package com.spring.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,9 +12,10 @@ import javax.persistence.Table;
 
 @Entity
 @Table (name="direcciones")
-public class Direccion {
+public class Direccion implements Serializable{
 	
-	
+
+    private static final long serialVersionUID = 144585071807476496L;
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private int id_direcciones;
