@@ -40,7 +40,7 @@ public class ApplicationContextConfig extends WebMvcConfigurerAdapter{
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		System.out.println("-- entrando en addResourceHandlers");
 		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/assets/");
-		registry.addResourceHandler("/images/**").addResourceLocations("resources/assets/");
+		registry.addResourceHandler("/images/**").addResourceLocations("/assets/images/");
 //		registry.addResourceHandler("/fonts/**").addResourceLocations("/assets/fonts/");
 //		registry.addResourceHandler("/js/**").addResourceLocations("/assets/js/");
 	}

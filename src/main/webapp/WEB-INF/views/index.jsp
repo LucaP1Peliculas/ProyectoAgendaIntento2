@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ page import="java.util.*"%>
@@ -21,7 +20,12 @@
         <nav>
             <ul>
                 <li id="settings">
-                    <a href="#"><img src="images/logo1.png" /></a>
+                	<spring:url value="/resources/images" var="images" />
+   					<a href="#"><img src="${images}/logo1.png"/></a>
+                
+                
+                
+                   <!-- <a href="#"><img src="/images/logo1.png" /></a>  -->
                 </li>
                 <li>
                     <a href="#">Añadir</a>
@@ -30,7 +34,11 @@
                     <a href="#">Ejemplo</a>
                 </li>
                 <li id="options">
-                    <a href="#">Categoría</a>
+                	<!-- <spring:url value="/resources/images" var="images" />
+   					<a href="#">Categoría<img src="${images}/triangle.png"/></a>  -->
+                
+                    <a href="#">Categoría</a> 
+                    <!-- (../images/triangle.png); -->
                     <ul class="subnav">
                         <li><a href="#">Fijo</a></li>
                         <li><a href="#">Móvil</a></li>
@@ -65,7 +73,9 @@
              
              <c:forEach var="persona" items="${personList}" varStatus="status">
              	<section>
-             		<a><img src="images/person.png"/></a>
+             		<spring:url value="/resources/images" var="images" />
+   					<a><img src="${images}/person.png"/></a>
+             		<!-- <a><img src="/images/person.png"/></a> -->
              		<h3>${persona.nombre}</h3>
              	</section>
 			</c:forEach>
@@ -75,7 +85,9 @@
             
         </article>
         <aside>
-            <a><img src="images/person.png"/></a>
+      	 	<spring:url value="/resources/images" var="images" />
+   			<a><img src="${images}/person.png"/></a>
+            <!-- <a><img src="/images/person.png"/></a> -->
             <div id="information">
                 <form id="formContacto" action="" method="get">
                     <input type="text" name="nombre" id="titElement" placeholder="Nombre, Apellido1 Apellido2"/>
