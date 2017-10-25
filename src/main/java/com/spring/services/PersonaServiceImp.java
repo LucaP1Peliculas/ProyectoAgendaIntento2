@@ -23,9 +23,8 @@ public class PersonaServiceImp implements IPersonaService{
 	}
 
 	@Override
-	public Persona get(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Persona getDetalles(int id) {
+		return personaDAO.getDetalles(id);
 	}
 
 	@Override

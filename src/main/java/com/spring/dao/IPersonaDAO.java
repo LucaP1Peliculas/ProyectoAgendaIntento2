@@ -7,7 +7,7 @@ import com.spring.model.Persona;
 public interface IPersonaDAO {
 	
 	public List<Persona> list();
-	public Persona get(int id);	
+	public Persona getDetalles(int id);	
 	public void saveOrUpdate(Persona persona);
 	public void delete(int id);
 	

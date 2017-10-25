@@ -65,21 +65,28 @@
     <div class="contenedor">
         <article class="scroll" id="scroll-style">
            
-           
+           <section>
+           </section>
            
            <!-- Cada section pertenece a un contacto. Se generará uno por cada contacto cargado. 
                 Tras pulsar en el section correspondiente o (h3) se realizará la llamada para 
                 completar el div de la derecha con la información correspondiente rellena. -->
              
              <c:forEach var="persona" items="${personList}" varStatus="status">
-             	<section>
-             		<spring:url value="/resources/images" var="images" />
-   					<a><img src="${images}/person.png"/></a>
-             		<!-- <a><img src="/images/person.png"/></a> -->
-             		<h3>${persona.nombre}</h3>
-             	</section>
+	            
+	             	<section>
+	             	
+	             		<spring:url value="/resources/images" var="images" />
+	   					<a><img src="${images}/person.png"/></a>
+	             		<!-- <a><img src="/images/person.png"/></a> -->
+	             		 <a href="detalles?id=${persona.idpersonas}"><h3>${persona.nombre}</h3></a>
+	             		
+	             	</section>
+	             
+             	
 			</c:forEach>
              
+ 
             
             
             
@@ -97,8 +104,8 @@
                     <input type="text" name="localidad" id="elements" placeholder="Localidad"/>
                     <input type="text" name="direccion" id="elements" placeholder="Dirección"/>
                     <input type="text" name="codpostal" id="elements" placeholder="Código postal"/>
-                    <input type="text" name="telefono" id="elements" placeholder="Teléfono"/>
-                    <input type="text" name="movil" id="elements" placeholder="Móvil"/>
+                    <input type="text" name="telefono1" id="elements" placeholder="Teléfono"/>
+                    <input type="text" name="telefono2" id="elements" placeholder="Móvil" value="${telefono2.telefono}"/>
                     <input type="button" name="send_button" id="send_button" value="Guardar"/>
                 </form>
             </div>

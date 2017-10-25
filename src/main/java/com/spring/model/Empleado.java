@@ -1,122 +1,119 @@
 package com.spring.model;
 
 import java.io.Serializable;
+import javax.persistence.*;
+import java.sql.Timestamp;
+import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
+/**
+ * The persistent class for the empleados database table.
+ * 
+ */
 @Entity
-@Table (name="empleados")
-public class Empleado implements Serializable{
-	
+@Table(name="empleados")
+@NamedQuery(name="Empleado.findAll", query="SELECT e FROM Empleado e")
+public class Empleado implements Serializable {
+	private static final long serialVersionUID = 1L;
 
-    private static final long serialVersionUID = 144585071807476496L;
 	@Id
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	private int id_empleados;
-	
-    private String codEmpleado;
-    private int salario;
-    private String  fechaAlta;
-    
-    
-    @JoinColumn(name = "idDepartamento", referencedColumnName = "iddepartamento")
-    @ManyToOne
-    private Departamento departamentoId;
-    
-    
-    @JoinColumn(name = "idCategoria", referencedColumnName = "idcategoria")
-    @ManyToOne
-    private Categoria categoriaId;
+	private int idempleados;
 
+	private String codEmpleado;
 
-	public int getId_empleados() {
-		return id_empleados;
+	private Timestamp fechaAlta;
+
+	private String salario;
+
+	//bi-directional many-to-one association to Categoria
+	@ManyToOne
+	@JoinColumn(name="idCategoria")
+	private Categoria categoria;
+
+	//bi-directional many-to-one association to Departamento
+	@ManyToOne
+	@JoinColumn(name="idDepartamento")
+	private Departamento departamento;
+
+	//bi-directional many-to-one association to Persona
+	@OneToMany(mappedBy="empleado")
+	private List<Persona> personas;
+
+	public Empleado() {
 	}
 
-
-	public void setId_empleados(int id_empleados) {
-		this.id_empleados = id_empleados;
+	public int getIdempleados() {
+		return this.idempleados;
 	}
 
+	public void setIdempleados(int idempleados) {
+		this.idempleados = idempleados;
+	}
 
 	public String getCodEmpleado() {
-		return codEmpleado;
+		return this.codEmpleado;
 	}
-
 
 	public void setCodEmpleado(String codEmpleado) {
 		this.codEmpleado = codEmpleado;
 	}
 
-
-	public int getSalario() {
-		return salario;
+	public Timestamp getFechaAlta() {
+		return this.fechaAlta;
 	}
 
-
-	public void setSalario(int salario) {
-		this.salario = salario;
-	}
-
-
-	public String getFechaAlta() {
-		return fechaAlta;
-	}
-
-
-	public void setFechaAlta(String fechaAlta) {
+	public void setFechaAlta(Timestamp fechaAlta) {
 		this.fechaAlta = fechaAlta;
 	}
 
-
-	public Departamento getDepartamentoId() {
-		return departamentoId;
+	public String getSalario() {
+		return this.salario;
 	}
 
-
-	public void setDepartamentoId(Departamento departamentoId) {
-		this.departamentoId = departamentoId;
-	}
-
-
-	public Categoria getCategoriaId() {
-		return categoriaId;
-	}
-
-
-	public void setCategoriaId(Categoria categoriaId) {
-		this.categoriaId = categoriaId;
-	}
-
-	
-	public Empleado(){}
-	
-	
-	public Empleado(int id_empleados,Departamento departamentoId, Categoria categoriaId){
-		this.id_empleados = id_empleados;
-		this.departamentoId = departamentoId;
-		this.categoriaId = categoriaId;
-	}
-	
-	
-	public Empleado(int id_empleados, String codEmpleado, int salario, String fechaAlta, Departamento departamentoId,
-			Categoria categoriaId) {
-		super();
-		this.id_empleados = id_empleados;
-		this.codEmpleado = codEmpleado;
+	public void setSalario(String salario) {
 		this.salario = salario;
-		this.fechaAlta = fechaAlta;
-		this.departamentoId = departamentoId;
-		this.categoriaId = categoriaId;
 	}
 
-    
-    
-    
+	public Categoria getCategoria() {
+		return this.categoria;
+	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
+
+	public Departamento getDepartamento() {
+		return this.departamento;
+	}
+
+	public void setDepartamento(Departamento departamento) {
+		this.departamento = departamento;
+	}
+
+	public List<Persona> getPersonas() {
+		return this.personas;
+	}
+
+	public void setPersonas(List<Persona> personas) {
+		this.personas = personas;
+	}
+
+	public Persona addPersona(Persona persona) {
+		getPersonas().add(persona);
+		persona.setEmpleado(this);
+
+		return persona;
+	}
+
+	public Persona removePersona(Persona persona) {
+		getPersonas().remove(persona);
+		persona.setEmpleado(null);
+
+		return persona;
+	}
+
+
+	
+	
+
 }

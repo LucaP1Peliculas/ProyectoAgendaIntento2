@@ -1,153 +1,167 @@
 package com.spring.model;
 
 import java.io.Serializable;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Date;
+import java.util.List;
 
 
-
+/**
+ * The persistent class for the personas database table.
+ * 
+ */
 @Entity
-@Table(name = "personas")
+@Table(name="personas")
+@NamedQuery(name="Persona.findAll", query="SELECT p FROM Persona p")
 public class Persona implements Serializable {
+	private static final long serialVersionUID = 1L;
 
-    private static final long serialVersionUID = 144585071807476496L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int idpersonas;
-    @Column(name = "nombre", nullable = false, length = 25)
-    private String nombre;
-    @Column(name = "apellido1", length = 25)
-    private String apellido1;
-    @Column(name = "apellido2", length = 25)
-    private String apellido2;
-    @Column(name = "dni", length = 25)
-    private String dni;
-    @Column(name = "fechaNacimiento", length = 25)
-    private String fechaNacimiento;
-    
+	@Id
+	private int idpersonas;
 
-    
-      // @JoinColumn(name= "idEmpleado", referencedColumnName ="idempleados")
-     // @OneToOne
-    // private Empleado empleadoId;
+	private String apellido1;
 
-    
-    public int getIdpersonas() {
-		return idpersonas;
+	private String apellido2;
+
+	private String dni;
+
+	@Temporal(TemporalType.DATE)
+	private Date fechaNacimiento;
+
+	private String nombre;
+
+	//bi-directional many-to-one association to Direccione
+	@OneToMany(mappedBy="persona")
+	private List<Direccione> direcciones;
+
+	public Persona(int idpersonas, String apellido1, String apellido2, String dni, Date fechaNacimiento, String nombre,
+			List<Direccione> direcciones, Empleado empleado, List<Telefono> telefonos) {
+		super();
+		this.idpersonas = idpersonas;
+		this.apellido1 = apellido1;
+		this.apellido2 = apellido2;
+		this.dni = dni;
+		this.fechaNacimiento = fechaNacimiento;
+		this.nombre = nombre;
+		this.direcciones = direcciones;
+		this.empleado = empleado;
+		this.telefonos = telefonos;
 	}
 
+	//bi-directional many-to-one association to Empleado
+	@ManyToOne
+	@JoinColumn(name="idEmpleado")
+	private Empleado empleado;
+
+	//bi-directional many-to-one association to Telefono
+	@OneToMany(mappedBy="persona")
+	private List<Telefono> telefonos;
+
+	public Persona() {
+	}
+
+	public int getIdpersonas() {
+		return this.idpersonas;
+	}
 
 	public void setIdpersonas(int idpersonas) {
 		this.idpersonas = idpersonas;
 	}
 
-
-	public String getNombre() {
-		return nombre;
-	}
-
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-
 	public String getApellido1() {
-		return apellido1;
+		return this.apellido1;
 	}
-
 
 	public void setApellido1(String apellido1) {
 		this.apellido1 = apellido1;
 	}
 
-
 	public String getApellido2() {
-		return apellido2;
+		return this.apellido2;
 	}
-
 
 	public void setApellido2(String apellido2) {
 		this.apellido2 = apellido2;
 	}
 
-
 	public String getDni() {
-		return dni;
+		return this.dni;
 	}
-
 
 	public void setDni(String dni) {
 		this.dni = dni;
 	}
 
-
-	public String getFechaNacimiento() {
-		return fechaNacimiento;
+	public Date getFechaNacimiento() {
+		return this.fechaNacimiento;
 	}
 
-
-	public void setFechaNacimiento(String fechaNacimiento) {
+	public void setFechaNacimiento(Date fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+	public String getNombre() {
+		return this.nombre;
 	}
 
-
-	public Persona() {
-    }
-
-   // -----------------constructor sin primary key y foreingkey
-	
-    public Persona( String nombre, String apellido1, String apellido2, String dni,
-			String fechaNacimiento) {
-		super();
+	public void setNombre(String nombre) {
 		this.nombre = nombre;
-		this.apellido1 = apellido1;
-		this.apellido2 = apellido2;
-		this.dni = dni;
-		this.fechaNacimiento = fechaNacimiento;
 	}
 
-    
-    //---------------- constructor con todos los atributos
+	public List<Direccione> getDirecciones() {
+		return this.direcciones;
+	}
 
-//	public Persona(int idpersonas, String nombre, String apellido1, String apellido2, String dni,
-//			String fechaNacimiento, int idempleado) {
-//		super();
-//		this.idpersonas = idpersonas;
-//		this.nombre = nombre;
-//		this.apellido1 = apellido1;
-//		this.apellido2 = apellido2;
-//		this.dni = dni;
-//		this.fechaNacimiento = fechaNacimiento;
-//		this.idempleado = idempleado;
-//	}
+	public void setDirecciones(List<Direccione> direcciones) {
+		this.direcciones = direcciones;
+	}
 
-    
-    
-  //---------------- constructor sin idpersona
-//    public Persona( String nombre, String apellido1, String apellido2, String dni,
-//			String fechaNacimiento, int idempleado) {
-//		super();
-//		this.nombre = nombre;
-//		this.apellido1 = apellido1;
-//		this.apellido2 = apellido2;
-//		this.dni = dni;
-//		this.fechaNacimiento = fechaNacimiento;
-//		this.idempleado=idempleado;
-//	}
+	public Direccione addDireccione(Direccione direccione) {
+		getDirecciones().add(direccione);
+		direccione.setPersona(this);
 
-    
-    
+		return direccione;
+	}
+
+	public Direccione removeDireccione(Direccione direccione) {
+		getDirecciones().remove(direccione);
+		direccione.setPersona(null);
+
+		return direccione;
+	}
+
+	public Empleado getEmpleado() {
+		return this.empleado;
+	}
+
+	public void setEmpleado(Empleado empleado) {
+		this.empleado = empleado;
+	}
+
+	public List<Telefono> getTelefonos() {
+		return this.telefonos;
+	}
+
+	public void setTelefonos(List<Telefono> telefonos) {
+		this.telefonos = telefonos;
+	}
+
+	public Telefono addTelefono(Telefono telefono) {
+		getTelefonos().add(telefono);
+		telefono.setPersona(this);
+
+		return telefono;
+	}
+
+	public Telefono removeTelefono(Telefono telefono) {
+		getTelefonos().remove(telefono);
+		telefono.setPersona(null);
+
+		return telefono;
+	}
+
+
+	
+	
+
 }

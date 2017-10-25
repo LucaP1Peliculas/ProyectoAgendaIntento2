@@ -1,59 +1,84 @@
 package com.spring.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.io.Serializable;
+import javax.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
+
+/**
+ * The persistent class for the categorias database table.
+ * 
+ */
 @Entity
-@Table (name="categorias")
-public class Categoria {
-	
+@Table(name="categorias")
+@NamedQuery(name="Categoria.findAll", query="SELECT c FROM Categoria c")
+public class Categoria implements Serializable {
+	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	private int id_categorias;
-	
-	private String nombre;
+	private int idcategorias;
+
 	private String descripcion;
-	
-	
-	public int getId_categorias() {
-		return id_categorias;
+
+	private String nombre;
+
+	//bi-directional many-to-one association to Empleado
+	@OneToMany(mappedBy="categoria")
+	private List<Empleado> empleados;
+
+	public Categoria() {
 	}
-	public void setId_categorias(int id_categorias) {
-		this.id_categorias = id_categorias;
+
+	public int getIdcategorias() {
+		return this.idcategorias;
 	}
-	public String getNombre() {
-		return nombre;
+
+	public void setIdcategorias(int idcategorias) {
+		this.idcategorias = idcategorias;
 	}
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
+
 	public String getDescripcion() {
-		return descripcion;
+		return this.descripcion;
 	}
+
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-	
-	public Categoria(){}
-	
-	public Categoria(int id_categorias, String nombre, String descripcion) {
-		super();
-		this.id_categorias = id_categorias;
+
+	public String getNombre() {
+		return this.nombre;
+	}
+
+	public void setNombre(String nombre) {
 		this.nombre = nombre;
-		this.descripcion = descripcion;
 	}
-	
-	@Override
-	public String toString() {
-		return "Categoria [id_categorias=" + id_categorias + ", nombre=" + nombre + ", descripcion=" + descripcion
-				+ "]";
+
+	public List<Empleado> getEmpleados() {
+		return this.empleados;
 	}
+
+	public void setEmpleados(List<Empleado> empleados) {
+		this.empleados = empleados;
+	}
+
+	public Empleado addEmpleado(Empleado empleado) {
+		getEmpleados().add(empleado);
+		empleado.setCategoria(this);
+
+		return empleado;
+	}
+
+	public Empleado removeEmpleado(Empleado empleado) {
+		getEmpleados().remove(empleado);
+		empleado.setCategoria(null);
+
+		return empleado;
+	}
+
+
 	
 	
 
-	
 }

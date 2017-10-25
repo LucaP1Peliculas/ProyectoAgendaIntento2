@@ -51,9 +51,9 @@ public class ApplicationContextConfig extends WebMvcConfigurerAdapter{
     	dataSource.setDriverClassName("com.mysql.jdbc.Driver");
   
     	//--- CONEXION DE MARIO PARA LA BASE DE DATOS ---//
-    	dataSource.setUrl("jdbc:mysql://192.168.200.2:3306/agenda");
-    	dataSource.setUsername("mariolus");
-    	dataSource.setPassword("yayolus");
+//    	dataSource.setUrl("jdbc:mysql://192.168.200.2:3306/agenda");
+//    	dataSource.setUsername("mariolus");
+//    	dataSource.setPassword("yayolus");
     	
     	//--- CONEXION DE PABLO PARA LA BASE DE DATOS ---//
     	//dataSource.setUrl("jdbc:mysql://192.168.200.2:3306/agenda");
@@ -66,9 +66,9 @@ public class ApplicationContextConfig extends WebMvcConfigurerAdapter{
 //    	dataSource.setPassword("zaineb");
     	
     	//--- CONEXION DE GABRIEL PARA LA BASE DE DATOS ---//
-    	//dataSource.setUrl("jdbc:mysql://localhost:3306/agenda");
-    	//dataSource.setUsername("root");
-    	//dataSource.setPassword("1111");
+    	dataSource.setUrl("jdbc:mysql://localhost:3306/agenda");
+    	dataSource.setUsername("root");
+    	dataSource.setPassword("1111");
    
     	return dataSource;
     }
@@ -85,9 +85,12 @@ public class ApplicationContextConfig extends WebMvcConfigurerAdapter{
     public SessionFactory getSessionFactory(DataSource dataSource) {
     	LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
     	sessionBuilder.addProperties(getHibernateProperties());
-//    	sessionBuilder.addAnnotatedClasses(Direccion.class);
+    	sessionBuilder.addAnnotatedClasses(Direccione.class);
     	sessionBuilder.addAnnotatedClasses(Persona.class);
-//    	sessionBuilder.addAnnotatedClasses(Telefono.class);
+    	sessionBuilder.addAnnotatedClasses(Telefono.class);
+    	sessionBuilder.addAnnotatedClasses(Categoria.class);
+    	sessionBuilder.addAnnotatedClasses(Departamento.class);
+    	sessionBuilder.addAnnotatedClasses(Empleado.class);
     	return sessionBuilder.buildSessionFactory();
     }
     

@@ -1,54 +1,70 @@
 package com.spring.model;
 
 import java.io.Serializable;
+import javax.persistence.*;
+import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
+/**
+ * The persistent class for the departamentos database table.
+ * 
+ */
 @Entity
-@Table (name="departamentos")
-
+@Table(name="departamentos")
+@NamedQuery(name="Departamento.findAll", query="SELECT d FROM Departamento d")
 public class Departamento implements Serializable {
-	
+	private static final long serialVersionUID = 1L;
 
-    private static final long serialVersionUID = 144585071807476496L;
 	@Id
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	private int id_departamentos;
-	
+	private int iddepartamento;
+
 	private String nombre;
 
-	public int getId_departamentos() {
-		return id_departamentos;
+	//bi-directional many-to-one association to Empleado
+	@OneToMany(mappedBy="departamento")
+	private List<Empleado> empleados;
+
+	public Departamento() {
 	}
 
-	public void setId_departamentos(int id_departamentos) {
-		this.id_departamentos = id_departamentos;
+	public int getIddepartamento() {
+		return this.iddepartamento;
+	}
+
+	public void setIddepartamento(int iddepartamento) {
+		this.iddepartamento = iddepartamento;
 	}
 
 	public String getNombre() {
-		return nombre;
+		return this.nombre;
 	}
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 
-	public Departamento(){}
-	
-	public Departamento(int id_departamentos, String nombre) {
-
-		this.id_departamentos = id_departamentos;
-		this.nombre = nombre;
+	public List<Empleado> getEmpleados() {
+		return this.empleados;
 	}
 
-	@Override
-	public String toString() {
-		return "Departamento [id_departamentos=" + id_departamentos + ", nombre=" + nombre + "]";
+	public void setEmpleados(List<Empleado> empleados) {
+		this.empleados = empleados;
 	}
+
+	public Empleado addEmpleado(Empleado empleado) {
+		getEmpleados().add(empleado);
+		empleado.setDepartamento(this);
+
+		return empleado;
+	}
+
+	public Empleado removeEmpleado(Empleado empleado) {
+		getEmpleados().remove(empleado);
+		empleado.setDepartamento(null);
+
+		return empleado;
+	}
+
 
 	
 	
