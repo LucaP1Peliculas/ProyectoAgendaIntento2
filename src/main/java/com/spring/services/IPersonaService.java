@@ -10,5 +10,6 @@ public interface IPersonaService {
 	public Persona getDetalles(int id);	
 	public void saveOrUpdate(Persona persona);
 	public void delete(int id);
+	public List<Persona> search(String s);
 	
 }
