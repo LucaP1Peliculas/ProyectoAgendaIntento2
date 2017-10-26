@@ -39,6 +39,12 @@ public class PersonaServiceImp implements IPersonaService{
 		
 	}
 	
+	@Override
+	public List<Persona> search(String s){
+		return null;
+		
+	}
+	
 
 	
 	

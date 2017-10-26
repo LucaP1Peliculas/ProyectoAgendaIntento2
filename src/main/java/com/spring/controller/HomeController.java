@@ -5,11 +5,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.model.Persona;
@@ -36,6 +38,17 @@ public class HomeController {
 		return model;
 	}
 	
+	@RequestMapping(value = "/search")
+	public String Search(@RequestParam("searchString") String searchString, ModelAndView model) {
+
+	    if(searchString != null){
+	        List<Persona> searchResult = personaService.search(searchString);
+	        model.addObject("searchResult", searchResult);  
+	    }
+
+	    return "search";
+	}
+	
 	@RequestMapping("/detalles")
 	public ModelAndView handleRequestDetalles(HttpServletRequest request) throws Exception{
 		
@@ -50,6 +63,8 @@ public class HomeController {
 		Telefono telefono2 = t.get(0);
 		
 		////////////////CODIGO PABLO/////////////////////
+		
+		Telefono telefono1= t.get(1);
 		
 		String nombre=personaService.getDetalles(id).getNombre();
 		String apellido1=personaService.getDetalles(id).getApellido1();
@@ -81,6 +96,7 @@ public class HomeController {
 		model.addObject("cp", cp);
 		model.addObject("provincia", provincia);
 		model.addObject("localidad", localidad);
+		model.addObject("telefono1", telefono1);
 		//////////////////////////////
 		
 		return model;

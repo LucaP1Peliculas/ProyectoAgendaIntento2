@@ -106,7 +106,7 @@
                     <input type="text" name="localidad" id="elements" placeholder="Localidad" value="${localidad}"/>
                     <input type="text" name="direccion" id="elements" placeholder="Dirección" value= "${direccion}"/>
                     <input type="text" name="codpostal" id="elements" placeholder="Código postal" value="${cp}"/>
-                    <input type="text" name="telefono1" id="elements" placeholder="Teléfono"/>
+                    <input type="text" name="telefono1" id="elements" placeholder="Teléfono" value="${telefono1.telefono}"/>
                     <input type="text" name="telefono2" id="elements" placeholder="Móvil" value="${telefono2.telefono}"/>
                     <input type="submit" name="send_button" id="send_button" value="Guardar"/>
                 </form>

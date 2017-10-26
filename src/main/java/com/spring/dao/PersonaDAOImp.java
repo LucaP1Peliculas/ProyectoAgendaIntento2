@@ -56,5 +56,17 @@ public class PersonaDAOImp implements IPersonaDAO{
 	
 		
 	}
+	/////CODIGO BUSQUEDA PABLO////////////
+	@Override
+	public List<Persona> search(String s){
+		@SuppressWarnings("unchecked")
+		//List<Persona> p2=(List<Persona>) sessionFactory.getCurrentSession().createCriteria(Persona.class).add(Restrictions.or(Restrictions.like("nombre", s+"%"))).list();
+		List<Persona> p3=(List<Persona>) sessionFactory.getCurrentSession().createCriteria(Persona.class).add(
+				Restrictions.disjunction().add(Restrictions.like("nombre", s+"%")).add(Restrictions.like("telefono1", "%"+s+"%" ))).list();
+
+		return  p3;
+	}
+	//En teoría esto nos tendría que filtrar si una persona mete la primera letra del nombre o las primeras, y le da a enter.
+	////////////////////////////////////////////
 
 }
