@@ -42,7 +42,7 @@ public class ApplicationContextConfig extends WebMvcConfigurerAdapter{
 		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/assets/");
 		registry.addResourceHandler("/images/**").addResourceLocations("/assets/images/");
 //		registry.addResourceHandler("/fonts/**").addResourceLocations("/assets/fonts/");
-//		registry.addResourceHandler("/js/**").addResourceLocations("/assets/js/");
+		registry.addResourceHandler("/js/**").addResourceLocations("resources/assets/js/");
 	}
         
     @Bean(name = "dataSource")
@@ -50,10 +50,10 @@ public class ApplicationContextConfig extends WebMvcConfigurerAdapter{
     	BasicDataSource dataSource = new BasicDataSource();
     	dataSource.setDriverClassName("com.mysql.jdbc.Driver");
   
-    	//--- CONEXION DE MARIO PARA LA BASE DE DATOS ---//
-    	dataSource.setUrl("jdbc:mysql://192.168.200.2:3306/agenda");
-    	dataSource.setUsername("mariolus");
-    	dataSource.setPassword("yayolus");
+//    	//--- CONEXION DE MARIO PARA LA BASE DE DATOS ---//
+//    	dataSource.setUrl("jdbc:mysql://192.168.200.2:3306/agenda");
+//    	dataSource.setUsername("mariolus");
+//    	dataSource.setPassword("yayolus");
     	
 //    	//--- CONEXION DE PABLO PARA LA BASE DE DATOS ---//
 //    	dataSource.setUrl("jdbc:mysql://192.168.200.2:3306/agenda");
@@ -66,9 +66,9 @@ public class ApplicationContextConfig extends WebMvcConfigurerAdapter{
 //    	dataSource.setPassword("zaineb");
     	
     	//--- CONEXION DE GABRIEL PARA LA BASE DE DATOS ---//
-    	//dataSource.setUrl("jdbc:mysql://localhost:3306/agenda");
-    	//dataSource.setUsername("root");
-    	//dataSource.setPassword("1111");
+    	dataSource.setUrl("jdbc:mysql://localhost:3306/agenda");
+    	dataSource.setUsername("root");
+    	dataSource.setPassword("1111");
    
     	return dataSource;
     }

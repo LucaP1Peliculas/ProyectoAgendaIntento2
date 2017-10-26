@@ -46,7 +46,7 @@ nav li a:hover {
 	background-color: #313131;
 }
 
-/* LOGO Y BARRA BÃšSQUEDA */
+/* LOGO Y BARRA BÚSQUEDA */
 #settings a {
 	height: 24px;
 	line-height: 40px;
@@ -62,7 +62,6 @@ nav li a:hover {
 #search {
 	width: 337px;
 }
-
 #search_text{
 	width: 297px;
 	padding: 15px 0 15px 20px;
@@ -96,7 +95,6 @@ nav li a:hover {
     color: #fff;
     outline: 0px;
 }
-
 #search_button {
     border-radius: 0px 15px 15px 0px;
 	border: 0 none;
@@ -195,29 +193,38 @@ section a img{
 section h3{
     float: left;
     margin-top: 8px;
-    font-size: 20px;
+    font-size: 18px;
 	line-height: 40px;
 	padding: 0 15px;
     color: #2E2E2E;
+	letter-spacing: 1px;
 	text-decoration: none;
 	font-family: 'Khula', sans-serif;
 	text-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
 }
+section h3:hover{
+	color: #009f80;
+	transition: all 0.15s;
+	letter-spacing: 2px;
+	text-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+}
 
 aside{
+	display: none;
     float: right;
     text-align:center;
     margin: 20px;
     margin-top: 40px;
     width: 48%;
     height: 90%;
+	transition: all 0.25s;
     background: #F5F5F5;
     border: 1px solid #727272;
     border-radius: 20px 20px 20px 20px;
     box-shadow: 2px 2px 2px #3B3B3B;
 }
 aside a img{
-    width: 250px;
+    width: 200px;
     margin-top: 50px;
 }
 aside #information{
@@ -228,11 +235,10 @@ aside #information{
 }
 aside p{
     float: left;
-    clear: both;
     margin-top: 10px;
-    padding-right: 50px;
+    padding-left: 20px;
     color: #2E2E2E;
-    font-size: 17px;
+    font-size: 16px;
     text-decoration: none;
 	font-family: 'Khula', sans-serif;
 	text-shadow: 0 0 1px rgba(255, 255, 255, 0.5);  
@@ -243,7 +249,7 @@ aside p{
 	width: 50%;
 }
 #information #titElement{
-	float:left;
+	float: left;
     text-align: center;
 	font-size: 20px;
 	font-family: 'Khula', sans-serif;
@@ -253,7 +259,7 @@ aside p{
     width : 33%;
     height : 40px;
     margin-top: 20px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     outline: 0px;
     color: #2E2E2E;
     text-decoration: none;
@@ -279,6 +285,9 @@ aside p{
     background: #9B9B9B;
     color: #fff;
     outline: 0px;
+}
+select{
+	padding: 0px;
 }
 #elements{
     margin-bottom: 20px;
@@ -315,7 +324,41 @@ aside p{
     color: #fff;
     outline: 0px;
 }
-#send_button {
+select{
+    margin-bottom: 20px;
+	padding-left: 20px;
+	width: 50%;
+	font-size: 16px;
+	font-family: 'Khula', sans-serif;
+	border: 0 none;
+    border-bottom: 1px solid #C4C4C4;
+	height: 40px;
+	margin-right: 0;
+	color: #2E2E2E;
+	background: #F5F5F5;
+	float: left;
+	box-sizing: border-box;
+	transition: all 0.25s;
+}
+#textbox{
+	margin-top: 5px;
+	margin-left: 20px;
+    margin-bottom: 20px;
+	width: 30px;
+	padding: 15px 0 15px 20px;
+	font-size: 16px;
+	font-family: 'Khula', sans-serif;
+	border: 0 none;
+    border-bottom: 1px solid #C4C4C4;
+	height: 30px;
+	margin-right: 0;
+	color: #2E2E2E;
+	background: #F5F5F5;
+	float: left;
+	box-sizing: border-box;
+	transition: all 0.25s;
+}
+#edit_button {
     clear: both;
     float: left;
 	width: 100%;
@@ -325,7 +368,7 @@ aside p{
     border-radius: 15px 15px 15px 15px;
     border: 1px solid #C4C4C4;
 }
-#send_button:hover {
+#edit_button:hover {
     clear: both;
     float: left;
 	width: 100%;
@@ -337,6 +380,55 @@ aside p{
     border-radius: 15px 15px 15px 15px;
     font-family: 'Khula', sans-serif;
     border: 1px solid #727272;
+}
+#save_button {
+    clear: both;
+    float: left;
+	width: 100%;
+    height: 40px;
+    font-size: 16px;
+    font-family: 'Khula', sans-serif;
+    border-radius: 15px 15px 15px 15px;
+    border: 1px solid #00b386;
+	display: none;
+}
+#save_button:hover {
+    clear: both;
+    float: left;
+	width: 100%;
+    height: 40px;
+    font-size: 16px;
+    background: #727272;
+    color: #fff;
+    transition: all 0.25s;
+    border-radius: 15px 15px 15px 15px;
+    font-family: 'Khula', sans-serif;
+    border: 1px solid #727272;
+}
+#delete_button {
+	margin-top:10px;
+    clear: both;
+    float: left;
+	width: 100%;
+    height: 40px;
+    font-size: 16px;
+    font-family: 'Khula', sans-serif;
+    border-radius: 15px 15px 15px 15px;
+    border: 1px solid #e60000;
+	display: none;
+}
+#delete_button:hover {
+    clear: both;
+    float: left;
+	width: 100%;
+    height: 40px;
+    font-size: 16px;
+    background: #800000;
+    color: #fff;
+    transition: all 0.25s;
+    border-radius: 15px 15px 15px 15px;
+    font-family: 'Khula', sans-serif;
+    border: 1px solid #e60000;
 }
 
 /* EXTRAS */
@@ -359,4 +451,3 @@ aside p{
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
 	background-color: #555;
 }
-

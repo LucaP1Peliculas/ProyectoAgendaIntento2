@@ -9,10 +9,9 @@
 <head>
     <title>Inicio</title>
    	
-   <link href="<c:url value='/resources/css/style.css' />" rel="stylesheet"></link>
-  	
-   	   
-
+    <link href="<c:url value='/resources/css/style.css'/>" rel="stylesheet"></link>
+    <script src="<c:url value="/js/js.js" />"></script>
+    
 </head>
 
 <body>
@@ -23,22 +22,17 @@
                 	<spring:url value="/resources/images" var="images" />
    					<a href="#"><img src="${images}/logo1.png"/></a>
                 
-                
-                
                    <!-- <a href="#"><img src="/images/logo1.png" /></a>  -->
                 </li>
                 <li>
-                    <a href="inicio">Añadir</a>
-                </li>
-                <li>
-                    <a href="#">Ejemplo</a>
+                    <a onClick="newC()">Nuevo contacto</a>
                 </li>
                 <li id="options">
-                	<!-- <spring:url value="/resources/images" var="images" />
-   					<a href="#">Categoría<img src="${images}/triangle.png"/></a>  -->
+                	<!--<spring:url value="/resources/images" var="images" />
+   					<a href="#">Categoría<img src="${images}/triangle.png"/></a>-->
                 
-                    <a href="#">Categoría</a> 
-                    <!-- (../images/triangle.png); -->
+                    <!--<a href="#">Categoría</a> 
+                    (../images/triangle.png); -->
                     <ul class="subnav">
                         <li><a href="#">Fijo</a></li>
                         <li><a href="#">Móvil</a></li>
@@ -65,50 +59,58 @@
     <div class="contenedor">
         <article class="scroll" id="scroll-style">
            
-           <section>
-           </section>
+           <section></section>
            
            <!-- Cada section pertenece a un contacto. Se generará uno por cada contacto cargado. 
                 Tras pulsar en el section correspondiente o (h3) se realizará la llamada para 
                 completar el div de la derecha con la información correspondiente rellena. -->
              
-             <c:forEach var="persona" items="${personList}" varStatus="status">
+            <c:forEach var="persona" items="${personList}" varStatus="status">
 	            
 	             	<section>
 	             	
 	             		<spring:url value="/resources/images" var="images" />
 	   					<a><img src="${images}/person.png"/></a>
 	             		<!-- <a><img src="/images/person.png"/></a> -->
-	             		 <a href="detalles?id=${persona.idpersonas}"><h3>${persona.nombre}</h3></a>
+	             		 <a href="detalles?id=${persona.idpersonas}"><h3>${persona.nombre}, ${persona.apellido1} ${persona.apellido2}</h3></a>
 	             		
 	             	</section>
-	             
-             	
+	                   	
 			</c:forEach>
-             
- 
-            
-            
-            
+       
+       
+       
+       
         </article>
-        <aside>
+        <aside id="detalles">
       	 	<spring:url value="/resources/images" var="images" />
    			<a><img src="${images}/person.png"/></a>
-            <!-- <a><img src="/images/person.png"/></a> -->
+            
             <div id="information">
-                <form id="formContacto" action="guardar" method="post">  
-                    <input type="text" name="nombre" id="titElement" placeholder="Nombre" value= "${nombre}"/>
-                    <input type="text" name="apellido1" id="titElement" placeholder="Apellido1" value= "${apellido1}"/>
-                    <input type="text" name="apellido2" id="titElement" placeholder="Apellido2" value= "${apellido2}"/>                   
-                    <input type="date" name="fechaNacimiento" id="elements"/ value="${fecha}">
-                    <input type="text" name="dni" id="elements" placeholder="DNI" value="${dni}"/>
-                    <input type="text" name="fechaNacimiento" id="elements" placeholder="Provincia" value="${provincia}"/>
-                    <input type="text" name="localidad" id="elements" placeholder="Localidad" value="${localidad}"/>
-                    <input type="text" name="direccion" id="elements" placeholder="Dirección" value= "${direccion}"/>
-                    <input type="text" name="codpostal" id="elements" placeholder="Código postal" value="${cp}"/>
-                    <input type="text" name="telefono1" id="elements" placeholder="Teléfono" value="${telefono1.telefono}"/>
-                    <input type="text" name="telefono2" id="elements" placeholder="Móvil" value="${telefono2.telefono}"/>
-                    <input type="submit" name="send_button" id="send_button" value="Guardar"/>
+                <form id="formContacto" action="" method="get">
+                    <input type="text" readonly="readonly" name="nombre" id="titElement" placeholder="Nombre" value= "${nombre}"/>
+                    <input type="text" readonly="readonly" name="apellido1" id="titElement" placeholder="Apellido 1" value= "${apellido1}"/>
+                    <input type="text" readonly="readonly" name="apellido2" id="titElement" placeholder="Apellido 2" value= "${apellido2}"/>
+                    <input type="date" readonly="readonly" name="fechaNacimiento" id="elements"/ value="${fecha}">
+                    <input type="text" readonly="readonly" name="dni" id="elements" placeholder="DNI" value="${dni}"/>
+                    <input type="text" readonly="readonly" name="provincia" id="elements" placeholder="Provincia" value="${provincia}"/>
+                    <input type="text" readonly="readonly" name="localidad" id="elements" placeholder="Localidad" value="${localidad}"/>
+                    <input type="text" readonly="readonly" name="direccion" id="elements" placeholder="Dirección" value= "${direccion}"/>
+                    <input type="text" readonly="readonly" name="codpostal" id="elements" placeholder="Código postal" value="${cp}"/>
+                    <input type="text" readonly="readonly" name="telefono1" id="elements" placeholder="Teléfono 1" value="${telefono1.telefono}"/>
+                    <input type="text" readonly="readonly" name="telefono2" id="elements" placeholder="Teléfono 2" value="${telefono2.telefono}"/>
+                    <select name="categoria" onchange="">
+						<option value="1">Programador Senior</option> 
+					    <option value="2">Programador Junior</option> 
+					    <option value="3">Jefe de proyecto</option>
+					    <option value="4">Manager de proyecto</option> 
+					    <option value="5">Gerente</option> 
+					    <option value="6">Director</option> 
+					</select>
+                    <input type="checkbox" readonly="readonly" name="empleado" id="empleado" placeholder= "Eres empleado?"/><p>Empleado</p> 
+                    <input type="button" onClick="edit()" name="edit_button" id="edit_button" value="Editar"/>
+					<input type="button" onClick="save()" name="save_button" id="save_button" value="Guardar"/>
+					<input type="button" onClick="delete()" name="delete_button" id="delete_button" value="Eliminar"/>
                 </form>
             </div>
         </aside>
