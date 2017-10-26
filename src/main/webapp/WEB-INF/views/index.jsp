@@ -28,7 +28,7 @@
                    <!-- <a href="#"><img src="/images/logo1.png" /></a>  -->
                 </li>
                 <li>
-                    <a href="#">Añadir</a>
+                    <a href="inicio">Añadir</a>
                 </li>
                 <li>
                     <a href="#">Ejemplo</a>
@@ -96,8 +96,10 @@
    			<a><img src="${images}/person.png"/></a>
             <!-- <a><img src="/images/person.png"/></a> -->
             <div id="information">
-                <form id="formContacto" action="" method="get">
-                    <input type="text" name="nombre" id="titElement" placeholder="Nombre, Apellido1 Apellido2" value= "${nombre} ${apellido1} ${apellido2}"/>
+                <form id="formContacto" action="guardar" method="post">  
+                    <input type="text" name="nombre" id="titElement" placeholder="Nombre" value= "${nombre}"/>
+                    <input type="text" name="apellido1" id="titElement" placeholder="Apellido1" value= "${apellido1}"/>
+                    <input type="text" name="apellido2" id="titElement" placeholder="Apellido2" value= "${apellido2}"/>                   
                     <input type="date" name="fechaNacimiento" id="elements"/ value="${fecha}">
                     <input type="text" name="dni" id="elements" placeholder="DNI" value="${dni}"/>
                     <input type="text" name="fechaNacimiento" id="elements" placeholder="Provincia" value="${provincia}"/>
@@ -106,7 +108,7 @@
                     <input type="text" name="codpostal" id="elements" placeholder="Código postal" value="${cp}"/>
                     <input type="text" name="telefono1" id="elements" placeholder="Teléfono"/>
                     <input type="text" name="telefono2" id="elements" placeholder="Móvil" value="${telefono2.telefono}"/>
-                    <input type="button" name="send_button" id="send_button" value="Guardar"/>
+                    <input type="submit" name="send_button" id="send_button" value="Guardar"/>
                 </form>
             </div>
         </aside>

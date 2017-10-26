@@ -51,14 +51,14 @@ public class ApplicationContextConfig extends WebMvcConfigurerAdapter{
     	dataSource.setDriverClassName("com.mysql.jdbc.Driver");
   
     	//--- CONEXION DE MARIO PARA LA BASE DE DATOS ---//
-//    	dataSource.setUrl("jdbc:mysql://192.168.200.2:3306/agenda");
-//    	dataSource.setUsername("mariolus");
-//    	dataSource.setPassword("yayolus");
-    	
-    	//--- CONEXION DE PABLO PARA LA BASE DE DATOS ---//
     	dataSource.setUrl("jdbc:mysql://192.168.200.2:3306/agenda");
-    	dataSource.setUsername("pablo");
-    	dataSource.setPassword("pablo");
+    	dataSource.setUsername("mariolus");
+    	dataSource.setPassword("yayolus");
+    	
+//    	//--- CONEXION DE PABLO PARA LA BASE DE DATOS ---//
+//    	dataSource.setUrl("jdbc:mysql://192.168.200.2:3306/agenda");
+//    	dataSource.setUsername("pablo");
+//    	dataSource.setPassword("pablo");
     	
 //    	//--- CONEXION DE ZAINEB PARA LA BASE DE DATOS ---//
 //    	dataSource.setUrl("jdbc:mysql://192.168.200.2:3306/agenda");

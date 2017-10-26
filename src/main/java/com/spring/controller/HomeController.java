@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.model.Persona;
@@ -54,11 +55,11 @@ public class HomeController {
 		String apellido1=personaService.getDetalles(id).getApellido1();
 		String apellido2=personaService.getDetalles(id).getApellido2();
 		String dni=personaService.getDetalles(id).getDni();
-		Date fecha=personaService.getDetalles(id).getFechaNacimiento();
+		String fecha=personaService.getDetalles(id).getFechaNacimiento();
 		List<Direccione> d=personaService.getDetalles(id).getDirecciones();
 		String direccion= d.get(0).getDireccion();
 		String cp=d.get(0).getCodPostal();
-		String provincia=d.get(0).getCodPostal();
+		String provincia=d.get(0).getProvincia();
 		String localidad= d.get(0).getLocalidad();
 		
 		////////////////////////////////////////////////
@@ -85,6 +86,53 @@ public class HomeController {
 		return model;
 	}
 	
-
+	@RequestMapping(value ="/guardar", method = RequestMethod.POST)
+	public ModelAndView handleRequestGuardar(HttpServletRequest request) throws Exception{
+		System.out.println("-- entrando en guardar");
+		List<Telefono> listaTelefono = null;
+		
+		Telefono t1 = new Telefono();
+		Telefono t2 = new Telefono();
+		
+		String nombre = request.getParameter("nombre");
+		String apellido1=request.getParameter("apellido1");
+		String apellido2=request.getParameter("apellido2");
+		String fecha=request.getParameter("fechaNacimiento");
+		
 	
+		String direccion= request.getParameter("direccion");
+		String cp=request.getParameter("codPostal");
+		String provincia=request.getParameter("provincia");
+		String localidad= request.getParameter("fechaNacimiento");
+
+		String telefono1 = request.getParameter("telefono1");
+		String telefono2 = request.getParameter("telefono2");		
+		
+		t1.setTelefono(telefono1);
+		t2.setTelefono(telefono2);
+		
+		listaTelefono.add(0, t1);
+		listaTelefono.add(1, t2);
+		
+		Persona p = new Persona();
+
+		List<Persona> listPersonas = personaService.list();	
+		ModelAndView model = new ModelAndView("index");
+		model.addObject("personList", listPersonas);
+
+		return model;
+	}
+	
+
+	@RequestMapping("/inicio")
+	public ModelAndView handleRequestInicio() throws Exception {
+
+		System.out.println("Aceptada la respuesta al mapeo /");
+		List<Persona> listPersonas = personaService.list();
+		ModelAndView model = new ModelAndView("index");
+		model.addObject("personList", listPersonas);
+		List<Telefono> t = personaService.getDetalles(1).getTelefonos();
+		
+		return model;
+	}
 }

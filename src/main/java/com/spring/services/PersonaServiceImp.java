@@ -29,7 +29,7 @@ public class PersonaServiceImp implements IPersonaService{
 
 	@Override
 	public void saveOrUpdate(Persona persona) {
-		// TODO Auto-generated method stub
+		personaDAO.saveOrUpdate(persona);
 		
 	}
 

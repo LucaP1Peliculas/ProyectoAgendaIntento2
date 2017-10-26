@@ -25,8 +25,7 @@ public class Persona implements Serializable {
 
 	private String dni;
 
-	@Temporal(TemporalType.DATE)
-	private Date fechaNacimiento;
+	private String fechaNacimiento;
 
 	private String nombre;
 
@@ -34,7 +33,7 @@ public class Persona implements Serializable {
 	@OneToMany(mappedBy="persona", fetch = FetchType.EAGER) //PABLO: incluido lo del fetch
 	private List<Direccione> direcciones;
 
-	public Persona(int idpersonas, String apellido1, String apellido2, String dni, Date fechaNacimiento, String nombre,
+	public Persona(int idpersonas, String apellido1, String apellido2, String dni, String fechaNacimiento, String nombre,
 			List<Direccione> direcciones, Empleado empleado, List<Telefono> telefonos) {
 		super();
 		this.idpersonas = idpersonas;
@@ -45,6 +44,18 @@ public class Persona implements Serializable {
 		this.nombre = nombre;
 		this.direcciones = direcciones;
 		this.empleado = empleado;
+		this.telefonos = telefonos;
+	}
+	
+	public Persona(String apellido1, String apellido2, String dni, String fechaNacimiento, String nombre,
+			List<Direccione> direcciones, List<Telefono> telefonos) {
+		super();
+		this.apellido1 = apellido1;
+		this.apellido2 = apellido2;
+		this.dni = dni;
+		this.fechaNacimiento = fechaNacimiento;
+		this.nombre = nombre;
+		this.direcciones = direcciones;
 		this.telefonos = telefonos;
 	}
 
@@ -92,11 +103,11 @@ public class Persona implements Serializable {
 		this.dni = dni;
 	}
 
-	public Date getFechaNacimiento() {
+	public String getFechaNacimiento() {
 		return this.fechaNacimiento;
 	}
 
-	public void setFechaNacimiento(Date fechaNacimiento) {
+	public void setFechaNacimiento(String fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 

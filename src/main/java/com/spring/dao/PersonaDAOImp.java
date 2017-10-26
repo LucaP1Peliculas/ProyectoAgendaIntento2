@@ -47,7 +47,7 @@ public class PersonaDAOImp implements IPersonaDAO{
 
 	@Override
 	public void saveOrUpdate(Persona persona) {
-	
+		sessionFactory.getCurrentSession().save(persona);
 		
 	}
 
