@@ -56,9 +56,9 @@ public class ApplicationContextConfig extends WebMvcConfigurerAdapter{
 //    	dataSource.setPassword("yayolus");
     	
     	//--- CONEXION DE PABLO PARA LA BASE DE DATOS ---//
-    	//dataSource.setUrl("jdbc:mysql://192.168.200.2:3306/agenda");
-    	//dataSource.setUsername("pablo");
-    	//dataSource.setPassword("pablo");
+    	dataSource.setUrl("jdbc:mysql://192.168.200.2:3306/agenda");
+    	dataSource.setUsername("pablo");
+    	dataSource.setPassword("pablo");
     	
 //    	//--- CONEXION DE ZAINEB PARA LA BASE DE DATOS ---//
 //    	dataSource.setUrl("jdbc:mysql://192.168.200.2:3306/agenda");
@@ -66,9 +66,9 @@ public class ApplicationContextConfig extends WebMvcConfigurerAdapter{
 //    	dataSource.setPassword("zaineb");
     	
     	//--- CONEXION DE GABRIEL PARA LA BASE DE DATOS ---//
-    	dataSource.setUrl("jdbc:mysql://localhost:3306/agenda");
-    	dataSource.setUsername("root");
-    	dataSource.setPassword("1111");
+    	//dataSource.setUrl("jdbc:mysql://localhost:3306/agenda");
+    	//dataSource.setUsername("root");
+    	//dataSource.setPassword("1111");
    
     	return dataSource;
     }

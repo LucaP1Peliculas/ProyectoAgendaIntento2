@@ -31,7 +31,7 @@ public class Persona implements Serializable {
 	private String nombre;
 
 	//bi-directional many-to-one association to Direccione
-	@OneToMany(mappedBy="persona")
+	@OneToMany(mappedBy="persona", fetch = FetchType.EAGER) //PABLO: incluido lo del fetch
 	private List<Direccione> direcciones;
 
 	public Persona(int idpersonas, String apellido1, String apellido2, String dni, Date fechaNacimiento, String nombre,

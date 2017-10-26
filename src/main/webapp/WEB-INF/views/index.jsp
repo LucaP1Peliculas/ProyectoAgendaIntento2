@@ -97,13 +97,13 @@
             <!-- <a><img src="/images/person.png"/></a> -->
             <div id="information">
                 <form id="formContacto" action="" method="get">
-                    <input type="text" name="nombre" id="titElement" placeholder="Nombre, Apellido1 Apellido2"/>
-                    <input type="date" name="fechaNacimiento" id="elements"/>
-                    <input type="text" name="dni" id="elements" placeholder="DNI"/>
-                    <input type="text" name="fechaNacimiento" id="elements" placeholder="Provincia"/>
-                    <input type="text" name="localidad" id="elements" placeholder="Localidad"/>
-                    <input type="text" name="direccion" id="elements" placeholder="Dirección"/>
-                    <input type="text" name="codpostal" id="elements" placeholder="Código postal"/>
+                    <input type="text" name="nombre" id="titElement" placeholder="Nombre, Apellido1 Apellido2" value= "${nombre} ${apellido1} ${apellido2}"/>
+                    <input type="date" name="fechaNacimiento" id="elements"/ value="${fecha}">
+                    <input type="text" name="dni" id="elements" placeholder="DNI" value="${dni}"/>
+                    <input type="text" name="fechaNacimiento" id="elements" placeholder="Provincia" value="${provincia}"/>
+                    <input type="text" name="localidad" id="elements" placeholder="Localidad" value="${localidad}"/>
+                    <input type="text" name="direccion" id="elements" placeholder="Dirección" value= "${direccion}"/>
+                    <input type="text" name="codpostal" id="elements" placeholder="Código postal" value="${cp}"/>
                     <input type="text" name="telefono1" id="elements" placeholder="Teléfono"/>
                     <input type="text" name="telefono2" id="elements" placeholder="Móvil" value="${telefono2.telefono}"/>
                     <input type="button" name="send_button" id="send_button" value="Guardar"/>
