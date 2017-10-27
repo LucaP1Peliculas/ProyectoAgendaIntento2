@@ -100,6 +100,7 @@ function save(){
 	caja.style.border = "1px solid #727272";
 	// Llamadas a las funciones correspondientes.
 	disableForm();
+	return true;
 
 }
 
@@ -116,6 +117,7 @@ function edit(){
 	caja.style.border = "3px solid #fff";
 	// Llamadas a las funciones correspondientes.
 	enableForm();
+	return true;
 }
 
 // Realiza los cambios en el formulario para dar de alta un nuevo usuario.
@@ -131,7 +133,8 @@ function newC(){
 	caja.style.border = "3px solid #fff";
 	// Llamadas a las funciones correspondientes.
 	clearForm();
-	enableForm();	
+	enableForm();
+	return true;
 } 
 
 // Realiza los cambios para mostrar los detalles de un contacto clickeado.
@@ -143,6 +146,7 @@ function details(){
 	document.getElementById('delete_button').style.display = 'block';
 
 	disableForm();
+	return true;
 }
 
 // Funciones de carga al arrancar

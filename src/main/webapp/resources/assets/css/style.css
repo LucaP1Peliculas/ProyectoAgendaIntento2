@@ -340,7 +340,7 @@ select{
 	box-sizing: border-box;
 	transition: all 0.25s;
 }
-#textbox{
+#checkbox{
 	margin-top: 5px;
 	margin-left: 20px;
     margin-bottom: 20px;

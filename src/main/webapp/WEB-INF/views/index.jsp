@@ -28,11 +28,35 @@
                     <a onClick="newC()">Nuevo contacto</a>
                 </li>
                 <li id="options">
-                	<!--<spring:url value="/resources/images" var="images" />
-   					<a href="#">Categoría<img src="${images}/triangle.png"/></a>-->
+                	<!-- <spring:url value="/resources/images" var="images" />
+   					<a href="#">Categoría<img src="${images}/triangle.png"/></a>  -->
                 
-                    <!--<a href="#">Categoría</a> 
-                    (../images/triangle.png); -->
+                    <a href="#">Categoría</a> 
+                    <!-- (../images/triangle.png); -->
+                    <ul class="subnav">
+                        <li><a href="#">Programador</a></li>
+                        <li><a href="#">Analísta</a></li>
+                          <li><a href="#">Técnico Recursos Humanos</a></li>
+                            <li><a href="#">Secretaria</a></li>
+                              <li><a href="#">Recepcionista</a></li>
+                                <li><a href="#">Master del Universo</a></li>
+                                
+                    </ul>
+                </li>
+                <li id="options">
+                    <a href="#">Departamentos</a>
+                    <ul class="subnav">
+                        <li><a href="#">RRHH</a></li>
+                        <li><a href="#">Informática</a></li>
+                        <li><a href="#">Logística</a></li>
+                         <li><a href="#">Dirección</a></li>
+                          <li><a href="#">Ventas</a></li>
+                    </ul>
+                </li>
+                <!--  
+                
+                <li id="options">
+   					
                     <ul class="subnav">
                         <li><a href="#">Fijo</a></li>
                         <li><a href="#">Móvil</a></li>
@@ -45,7 +69,8 @@
                         <li><a href="#">2</a></li>
                         <li><a href="#">3</a></li>
                     </ul>
-                </li>
+                </li> -->
+                
                 <li id="search">
                     <form action="" method="get">
                         <input type="text" name="search_text" id="search_text" placeholder="Búsqueda" />
